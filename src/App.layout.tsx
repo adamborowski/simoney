@@ -26,7 +26,7 @@ export const AppLayout: FC<PropsWithChildren<AppLayoutProps>> = ({
   const isCashFlow = useMatch(toCashflowPage());
 
   return (
-    <Layout>
+    <Layout className={styles.root}>
       <Sider trigger={null} collapsible collapsed={collapsed}>
         <div className="logo" />
         <Menu

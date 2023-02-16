@@ -1,3 +1,6 @@
 .toggleButton {
   margin: 1em;
 }
+.root {
+  min-height: 100vh;
+}
