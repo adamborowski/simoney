@@ -69,7 +69,7 @@ export const AppLayout: FC<PropsWithChildren<AppLayoutProps>> = ({
             background: colorBgContainer,
           }}
         >
-          Content
+          {children}
         </Content>
       </Layout>
     </Layout>

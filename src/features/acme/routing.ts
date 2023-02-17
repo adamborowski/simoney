@@ -1,0 +1,1 @@
+export const toAcmePage = () => "/acme";

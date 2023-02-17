@@ -8,6 +8,8 @@ import { Spin } from "antd";
 import { toLoginPage, toRegisterPage } from "./features/authorization/routing";
 import { toCashflowPage } from "./features/cashflow/routing";
 import { AuthClient } from "./features/authorization/client/AuthClient";
+import { toAcmePage } from "./features/acme/routing";
+import { AcmePage } from "./features/acme/pages/AcmePage";
 
 export interface AppConnectedProps {
   authClient: AuthClient;
@@ -25,6 +27,7 @@ export const AppConnected: FC<AppConnectedProps> = ({ authClient }) => {
             path={toCashflowPage()}
             element={<CashflowPage authClient={authClient} />}
           />
+          <Route path={toAcmePage()} element={<AcmePage />} />
           <Route path="/*" element={<Navigate to={toCashflowPage()} />} />
         </Routes>
       ) : (
