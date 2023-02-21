@@ -1,4 +1,10 @@
-import { createElement, FC, PropsWithChildren, useState } from "react";
+import {
+  createElement,
+  FC,
+  PropsWithChildren,
+  ReactNode,
+  useState,
+} from "react";
 import { Button, Layout, Menu, theme } from "antd";
 import {
   MenuFoldOutlined,
@@ -13,10 +19,13 @@ import { toCashflowPage } from "./features/cashflow/routing";
 
 const { Header, Sider, Content } = Layout;
 
-export interface AppLayoutProps {}
+export interface AppLayoutProps {
+  sidebar: ReactNode;
+}
 
 export const AppLayout: FC<PropsWithChildren<AppLayoutProps>> = ({
   children,
+  sidebar,
 }) => {
   const [collapsed, setCollapsed] = useState(false);
   const {
@@ -29,28 +38,7 @@ export const AppLayout: FC<PropsWithChildren<AppLayoutProps>> = ({
     <Layout className={styles.root}>
       <Sider trigger={null} collapsible collapsed={collapsed}>
         <div className="logo" />
-        <Menu
-          theme="dark"
-          mode="inline"
-          defaultSelectedKeys={["1"]}
-          items={[
-            {
-              key: "1",
-              icon: <UserOutlined />,
-              label: "CashFlow",
-            },
-            {
-              key: "2",
-              icon: <VideoCameraOutlined />,
-              label: "nav 2",
-            },
-            {
-              key: "3",
-              icon: <UploadOutlined />,
-              label: "nav 3",
-            },
-          ]}
-        />
+        {sidebar}
       </Sider>
       <Layout className="site-layout">
         <Header style={{ padding: 0, background: colorBgContainer }}>
