@@ -16,6 +16,7 @@ import {
   UserOutlined,
   VideoCameraOutlined,
 } from "@ant-design/icons";
+import { defaultMockCashflowClient } from "./features/cashflow/client/defaultMockCashflowClient";
 
 export interface AppConnectedProps {
   authClient: AuthClient;
@@ -57,7 +58,12 @@ export const AppConnected: FC<AppConnectedProps> = ({ authClient }) => {
           <Routes>
             <Route
               path={toCashflowPage()}
-              element={<CashflowPage authClient={authClient} />}
+              element={
+                <CashflowPage
+                  authClient={authClient}
+                  cashflowClient={defaultMockCashflowClient}
+                />
+              }
             />
             <Route path={toAcmePage()} element={<AcmePage />} />
             <Route path="/*" element={<Navigate to={toCashflowPage()} />} />
